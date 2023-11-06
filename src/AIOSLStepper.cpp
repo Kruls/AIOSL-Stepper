@@ -177,20 +177,20 @@ void Stepper::stepMotor(int thisStep)
   if (this->pin_count == 2) {
     switch (thisStep) {
       case 0:  // 01
-        digitalWrite(motor_enable_pin_A, LOW);
-        digitalWrite(motor_enable_pin_B, LOW);
+        digitalWrite(motor_phase_pin_A, LOW);
+        digitalWrite(motor_phase_pin_B, LOW);
       break;
       case 1:  // 11
-        digitalWrite(motor_enable_pin_A, HIGH);
-        digitalWrite(motor_enable_pin_B, LOW);
+        digitalWrite(motor_phase_pin_A, HIGH);
+        digitalWrite(motor_phase_pin_B, LOW);
       break;
       case 2:  // 10
-        digitalWrite(motor_enable_pin_A, HIGH);
-        digitalWrite(motor_enable_pin_B, HIGH);
+        digitalWrite(motor_phase_pin_A, HIGH);
+        digitalWrite(motor_phase_pin_B, HIGH);
       break;
       case 3:  // 00
-        digitalWrite(motor_enable_pin_A, LOW);
-        digitalWrite(motor_enable_pin_B, HIGH);
+        digitalWrite(motor_phase_pin_A, LOW);
+        digitalWrite(motor_phase_pin_B, HIGH);
       break;
     }
   }
