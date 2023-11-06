@@ -39,27 +39,14 @@
  * required for driving a stepper motor. Similarly the Arduino motor shield's
  * 2 direction pins may be used.
  *
- * The sequence of control signals for 5 phase, 5 control wires is as follows:
- *
- * Step C0 C1 C2 C3 C4
- *    1  0  1  1  0  1
- *    2  0  1  0  0  1
- *    3  0  1  0  1  1
- *    4  0  1  0  1  0
- *    5  1  1  0  1  0
- *    6  1  0  0  1  0
- *    7  1  0  1  1  0
- *    8  1  0  1  0  0
- *    9  1  0  1  0  1
- *   10  0  0  1  0  1
  *
  * The sequence of control signals for 4 control wires is as follows:
- *
+ * CORRECTED FOR AIO SERVO LAB
  * Step C0 C1 C2 C3
- *    1  1  0  1  0
- *    2  0  1  1  0
- *    3  0  1  0  1
- *    4  1  0  0  1
+ *    1  1  1  0  0
+ *    2  1  1  1  0
+ *    3  1  1  0  1
+ *    4  1  1  0  1
  *
  * The sequence of control signals for 2 control wires is as follows
  * (columns C1 and C2 from above):
@@ -83,12 +70,7 @@
 class Stepper {
   public:
     // constructors:
-    Stepper(int number_of_steps, int motor_pin_1, int motor_pin_2);
-    Stepper(int number_of_steps, int motor_pin_1, int motor_pin_2,
-                                 int motor_pin_3, int motor_pin_4);
-    Stepper(int number_of_steps, int motor_pin_1, int motor_pin_2,
-                                 int motor_pin_3, int motor_pin_4,
-                                 int motor_pin_5);
+    Stepper(int number_of_steps, int motor_enable_pin_A, int motor_enable_pin_B, int motor_phase_pin_A, int motor_phase_pin_B);
 
     // speed setter method:
     void setSpeed(long whatSpeed);
@@ -108,11 +90,10 @@ class Stepper {
     int step_number;          // which step the motor is on
 
     // motor pin numbers:
-    int motor_pin_1;
-    int motor_pin_2;
-    int motor_pin_3;
-    int motor_pin_4;
-    int motor_pin_5;          // Only 5 phase motor
+    int motor_enable_pin_A;
+    int motor_enable_pin_B;
+    int motor_phase_pin_A;
+    int motor_phase_pin_B;
 
     unsigned long last_step_time; // timestamp in us of when the last step was taken
 };
