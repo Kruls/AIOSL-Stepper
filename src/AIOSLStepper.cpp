@@ -76,7 +76,7 @@
  */
 
 #include "Arduino.h"
-#include "Stepper.h"
+#include "AIOSLStepper.h"
 
 /*
  *   constructor for four-pin version

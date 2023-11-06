@@ -63,8 +63,8 @@
  */
 
 // ensure this library description is only included once
-#ifndef Stepper_h
-#define Stepper_h
+#ifndef AIOSLStepper_h
+#define AIOSLStepper_h
 
 // library interface description
 class Stepper {
